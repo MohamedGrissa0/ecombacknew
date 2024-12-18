@@ -3,7 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const path = require("path");
 
 dotenv.config();
 
@@ -26,7 +25,7 @@ app.use(cors()); // Enable CORS to allow requests from your Next.js app
 app.use(express.json());
 
 // Routes
-app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/api/uploads', express.static('uploads'));
 app.use("/api/products", productRoute); // Example API route
 app.use("/api/order", orderRoute); // Example API route
 app.use("/api/category", CategoryRoute); // Example API route
